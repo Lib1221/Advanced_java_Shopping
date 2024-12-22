@@ -4,50 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add User</title>
-    <link rel="stylesheet" href="styles1.css">
+    <title>Add User - Liben Store</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styling for Header and Form -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .header .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header .store-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+        }
+
+        .actions .btn {
+            font-size: 1rem;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            border-radius: 0.375rem;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 2rem;
+            }
+
+            .section-heading {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
+
+    <!-- Header Section -->
+    <header class="header">
         <div class="logo-section">
             <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
             <h1 class="store-title">Liben Store</h1>
         </div>
         <div class="actions">
-            <a href="ViewUsersServlet"><button>View Users</button></a>
+            <a href="ViewUsersServlet">
+                <button class="btn btn-secondary">View Users</button>
+            </a>
         </div>
-    </div>
+    </header>
 
-    <h1 class="section-heading" style="text-align: center;">Add New User</h1>
-    <div class="container" style="margin: 20px auto; padding: 20px;">
+    <!-- Add User Form Section -->
+    <h1 class="section-heading">Add New User</h1>
+
+    <div class="container">
         <form action="AddUserServlet" method="POST">
+            <!-- Username -->
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required class="form-control">
             </div>
 
+            <!-- Email -->
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required class="form-control">
             </div>
 
+            <!-- Password -->
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required class="form-control">
             </div>
 
+            <!-- Admin Selection -->
             <div class="form-group">
                 <label for="isAdmin">Admin:</label>
-                <select id="isAdmin" name="isAdmin">
+                <select id="isAdmin" name="isAdmin" class="form-control">
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                 </select>
             </div>
 
+            <!-- Submit Button -->
             <button type="submit" class="btn btn-primary">Add User</button>
         </form>
     </div>
 
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

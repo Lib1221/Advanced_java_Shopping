@@ -5,29 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liben Store</title>
-    <link rel="stylesheet" href="styles1.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for specific tweaks */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .product-description {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #007b00;
+            font-size: 1.2em;
+        }
+
+        .buy-now {
+            display: inline-block;
+            padding: 8px 20px;
+            margin-top: 10px;
+            background-color: #007b00;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .buy-now:hover {
+            background-color: #005700;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .search-input {
+            width: 300px;
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        .header, .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer {
+            font-size: 0.9em;
+        }
+
+        .logo-section img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <div class="header">
-        <div class="logo-section">
-            <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
-            <h1 class="store-title">Liben Store</h1>
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products...">
-            <button class="search-btn">Search</button>
-        </div>
-        <div class="actions">
-            <img src="images/carts.png" alt="Cart Icon" class="action-icon">
-            <img src="images/orders.png" alt="Order Icon" class="action-icon">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo-section d-flex align-items-center">
+                <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
+                <h1 class="store-title">Liben Store</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" class="form-control search-input" id="search-input" placeholder="Search for products...">
+                <button class="btn btn-primary" onclick="searchProducts()">Search</button>
+            </div>
+            <div class="actions d-flex align-items-center">
+                <img src="images/carts.png" alt="Cart Icon" class="action-icon" width="30">
+                <img src="images/orders.png" alt="Order Icon" class="action-icon" width="30">
+            </div>
         </div>
     </div>
 
     <!-- Product List -->
-    <h1 class="product-heading">Our Products</h1>
-    <div class="product-slider">
-        <div class="product-container">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Our Products</h1>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
             <%
                 // Example product data if productList attribute is not provided
                 List<Map<String, String>> products = (List<Map<String, String>>) request.getAttribute("productList");
@@ -41,10 +124,10 @@
                     );
                 }
 
-                // Render each product
-                for (int i = 0; i < 2; i++) { // Duplicate products for a seamless loop
-                    for (Map<String, String> product : products) {
+                // Render each product dynamically in the product cards
+                for (Map<String, String> product : products) {
             %>
+            <div class="col">
                 <div class="product-card">
                     <img src="<%= product.get("image_url") %>" alt="<%= product.get("name") %>" class="product-image">
                     <div class="product-info">
@@ -54,37 +137,37 @@
                         <a href="#" class="buy-now">Buy Now</a>
                     </div>
                 </div>
+            </div>
             <%
-                    }
                 }
             %>
         </div>
     </div>
 
-    <!-- New Section for All Items -->
-<h1 class="section-heading" style="text-align: center;">Explore More Products</h1>
-<div class="building-blocks" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <%
-        // Render products in a dynamic, puzzle-like grid layout
-        for (Map<String, String> product : products) {
-    %>
-        <div class="block-card" style="width: 250px; text-align: center; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <img src="<%= product.get("image_url") %>" alt="<%= product.get("name") %>" class="block-image" 
-                 style="width: 100%; height: auto; object-fit: cover;">
-            <div class="block-info" style="padding: 10px;">
-                <h2 class="block-title" style="font-size: 1.2em; color: #333; margin-bottom: 5px;"><%= product.get("name") %></h2>
-                <p class="block-price" style="font-weight: bold; color: #007b00; font-size: 1.1em;">$<%= product.get("price") %></p>
-            </div>
-        </div>
-    <%
-        }
-    %>
-</div>
-    
-
     <!-- Footer -->
     <div class="footer">
         &copy; 2024 Liben Store. All rights reserved.
     </div>
+
+    <!-- JS Function for Search -->
+    <script>
+        function searchProducts() {
+            let query = document.getElementById('search-input').value.toLowerCase();
+            let products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                let productName = product.querySelector('.product-title').innerText.toLowerCase();
+                if (productName.includes(query)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
