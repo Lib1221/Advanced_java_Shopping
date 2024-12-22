@@ -18,26 +18,24 @@
 
 
    <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>shoppers.LoginServlet</servlet-class>
-</servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>shoppers.SignupServlet</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/SignupServlet</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>shoppers.LoginServlet</servlet-class>
+    </servlet>
 
-
-   <servlet>
-    <servlet-name>SignupServlet</servlet-name>
-    <servlet-class>shoppers.SignupServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-    <servlet-name>SignupServlet</servlet-name>
-    <url-pattern>/SignupServlet</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
    
 
 </web-app>
