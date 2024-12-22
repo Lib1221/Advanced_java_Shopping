@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronics Shop - Home</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Liben Electronic Store - Home</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
-        <h1>Welcome to Electronics Shop</h1>
+        <img src="images/log.png" alt="Liben Store Logo" class="logo">
+        <h1>Liben Electronic Store</h1>
         <p>Your one-stop shop for all your electronic needs</p>
     </header>
 
@@ -28,7 +29,7 @@
 
     <!-- Footer Section -->
     <footer class="footer">
-        <p>&copy; 2024 Electronics Shop. All rights reserved.</p>
+        <p>&copy; 2024 Liben Electronic Store. All rights reserved.</p>
     </footer>
 </body>
 </html>

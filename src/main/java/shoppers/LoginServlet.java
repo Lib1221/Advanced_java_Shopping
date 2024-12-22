@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     // Login successful
-                    response.sendRedirect("userList.jsp");  // Redirect to user list page after successful login
+                    response.sendRedirect("ProductListServlet");  // Redirect to user list page after successful login
                 } else {
                     // Invalid login credentials
                     response.getWriter().println("Invalid username or password!");

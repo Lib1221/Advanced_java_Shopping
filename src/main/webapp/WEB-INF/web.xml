@@ -37,5 +37,16 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
    
+   
+   <servlet>
+    <servlet-name>ProductListServlet</servlet-name>
+    <servlet-class>shoppers.ProductListServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>ProductListServlet</servlet-name>
+    <url-pattern>/ProductListServlet</url-pattern>
+</servlet-mapping>
+   
 
 </web-app>
