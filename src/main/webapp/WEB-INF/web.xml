@@ -47,6 +47,112 @@
     <servlet-name>ProductListServlet</servlet-name>
     <url-pattern>/ProductListServlet</url-pattern>
 </servlet-mapping>
+
+
+   <servlet>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <servlet-class>shoppers.AdminDashboardServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <url-pattern>/AdminDashboardServlet</url-pattern>
+</servlet-mapping>
+   
    
 
+<servlet>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>shoppers.AddProductServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/AddProductServlet</url-pattern>
+</servlet-mapping>
+
+
+
+    <servlet>
+    <servlet-name>ViewProductsServlet</servlet-name>
+    <servlet-class>shoppers.ViewProductsServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewProductsServlet</servlet-name>
+    <url-pattern>/ViewProductsServlet</url-pattern>
+</servlet-mapping>
+
+
+ 
+
+    <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>shoppers.DeleteProductServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/DeleteItem</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+    <servlet-name>UpdateProductServlet</servlet-name>
+    <servlet-class>shoppers.UpdateProductServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>UpdateProductServlet</servlet-name>
+    <url-pattern>/updateItem</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <servlet-class>shoppers.ViewUsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <url-pattern>/ViewUsersServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>EditUserServlet</servlet-name>
+        <servlet-class>shoppers.EditUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EditUserServlet</servlet-name>
+        <url-pattern>/EditUserServlet</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>shoppers.DeleteUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>AddUserServlet</servlet-name>
+    <servlet-class>shoppers.AddUserServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AddUserServlet</servlet-name>
+    <url-pattern>/AddUserServlet</url-pattern>
+</servlet-mapping>
+    
+    
+
+    
 </web-app>
