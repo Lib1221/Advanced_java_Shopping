@@ -97,14 +97,21 @@
     <!-- Header -->
     <div class="header">
         <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo-section d-flex align-items-center">
-                <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
-                <h1 class="store-title">Liben Store</h1>
-            </div>
-            <div class="search-bar">
-                <input type="text" class="form-control search-input" id="search-input" placeholder="Search for products...">
-                <button class="btn btn-primary" onclick="searchProducts()">Search</button>
-            </div>
+            
+        <div class="logo-section d-flex align-items-center gap-3">
+    <a href="ProductListServlet" class="text-decoration-none d-flex align-items-center">
+        <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
+        <h1 class="store-title ms-3">Liben Store</h1>
+    </a>
+</div>
+
+    
+            
+            <form action="SearchProductServlet" method="GET" class="d-flex">
+    <input type="text" name="query" class="form-control me-2" placeholder="Search for products...">
+    <button type="submit" class="btn btn-outline-success">Search</button>
+</form>
+
             <div class="actions d-flex align-items-center">
                 <img src="images/carts.png" alt="Cart Icon" class="action-icon" width="30">
                 <img src="images/orders.png" alt="Order Icon" class="action-icon" width="30">

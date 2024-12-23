@@ -165,5 +165,16 @@
 </servlet-mapping>
     
 
+
+
+      <servlet>
+    <servlet-name>SearchProductServlet</servlet-name>
+    <servlet-class>shoppers.SearchProductServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>SearchProductServlet</servlet-name>
+    <url-pattern>/SearchProductServlet</url-pattern>
+</servlet-mapping>
     
 </web-app>

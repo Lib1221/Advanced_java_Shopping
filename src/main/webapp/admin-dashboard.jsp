@@ -50,6 +50,24 @@
             font-size: 2rem;
             color: #007bff;
         }
+
+        .logo-img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .store-title {
+            text-align: center;
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +76,12 @@
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
-                <h3 class="text-center text-white">Admin Dashboard</h3>
+                <!-- Logo and Store Name with Redirection -->
+                <a href="ProductListServlet" class="text-decoration-none">
+                    <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
+                    <h1 class="store-title">Liben Store</h1>
+                </a>
+                
                 <hr class="text-white">
                 <ul class="nav flex-column">
                     <li class="nav-item">

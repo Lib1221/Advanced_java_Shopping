@@ -15,7 +15,7 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header .logo-section {
             display: flex;
             justify-content: center;
@@ -149,8 +149,10 @@
     <!-- Header -->
     <div class="header">
         <div class="logo-section">
-            <img src="images/log.png" alt="Liben Store Logo">
-            <h1 class="store-title">Liben Store</h1>
+            <a href="ProductListServlet" class="text-decoration-none">
+                <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
+                <h1 class="store-title">Liben Store</h1>
+            </a>
         </div>
     </div>
 
