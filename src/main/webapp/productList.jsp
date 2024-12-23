@@ -14,6 +14,11 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .product-card:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
         }
         
         .product-card img {
@@ -110,17 +115,17 @@
     <!-- Product List -->
     <div class="container my-5">
         <h1 class="text-center mb-4">Our Products</h1>
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <%
                 // Example product data if productList attribute is not provided
                 List<Map<String, String>> products = (List<Map<String, String>>) request.getAttribute("productList");
                 if (products == null || products.isEmpty()) {
                     products = Arrays.asList(
-                        Map.of("name", "Product 1", "description", "Description 1", "price", "10.99", "image_url", "images/product1.jpg"),
-                        Map.of("name", "Product 2", "description", "Description 2", "price", "20.99", "image_url", "images/product2.jpg"),
-                        Map.of("name", "Product 3", "description", "Description 3", "price", "30.99", "image_url", "images/product3.jpg"),
-                        Map.of("name", "Product 4", "description", "Description 4", "price", "40.99", "image_url", "images/product4.jpg"),
-                        Map.of("name", "Product 5", "description", "Description 5", "price", "50.99", "image_url", "images/product5.jpg")
+                        Map.of("id", "1", "name", "Product 1", "description", "Description 1", "price", "10.99", "image_url", "images/product1.jpg"),
+                        Map.of("id", "2", "name", "Product 2", "description", "Description 2", "price", "20.99", "image_url", "images/product2.jpg"),
+                        Map.of("id", "3", "name", "Product 3", "description", "Description 3", "price", "30.99", "image_url", "images/product3.jpg"),
+                        Map.of("id", "4", "name", "Product 4", "description", "Description 4", "price", "40.99", "image_url", "images/product4.jpg"),
+                        Map.of("id", "5", "name", "Product 5", "description", "Description 5", "price", "50.99", "image_url", "images/product5.jpg")
                     );
                 }
 
@@ -128,15 +133,17 @@
                 for (Map<String, String> product : products) {
             %>
             <div class="col">
-                <div class="product-card">
-                    <img src="<%= product.get("image_url") %>" alt="<%= product.get("name") %>" class="product-image">
-                    <div class="product-info">
-                        <h2 class="product-title"><%= product.get("name") %></h2>
-                        <p class="product-description"><%= product.get("description") %></p>
-                        <p class="product-price">$<%= product.get("price") %></p>
-                        <a href="#" class="buy-now">Buy Now</a>
+                <a href="ProductDetailServlet?id=<%= product.get("id") %>" class="text-decoration-none">
+                    <div class="product-card">
+                        <img src="<%= product.get("image_url") %>" alt="<%= product.get("name") %>" class="product-image">
+                        <div class="product-info">
+                            <h2 class="product-title"><%= product.get("name") %></h2>
+                            <p class="product-description"><%= product.get("description") %></p>
+                            <p class="product-price">$<%= product.get("price") %></p>
+                            <a href="#" class="buy-now">Buy Now</a>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <%
                 }

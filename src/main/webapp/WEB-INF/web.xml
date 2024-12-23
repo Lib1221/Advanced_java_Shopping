@@ -151,7 +151,18 @@
     <servlet-name>AddUserServlet</servlet-name>
     <url-pattern>/AddUserServlet</url-pattern>
 </servlet-mapping>
-    
+
+
+
+      <servlet>
+    <servlet-name>ProductDetailServlet</servlet-name>
+    <servlet-class>shoppers.ProductDetailServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>ProductDetailServlet</servlet-name>
+    <url-pattern>/ProductDetailServlet</url-pattern>
+</servlet-mapping>
     
 
     
