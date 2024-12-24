@@ -7,11 +7,56 @@
     <title>Admin Dashboard</title>
     <!-- Link to Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Styling for Sidebar -->
+    <!-- Custom Styling for Sidebar and Dashboard -->
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Header and Navbar Styling */
+        .navbar {
+            background-color: #000000; /* Black background */
+            padding: 15px 30px;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff !important; /* White text */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* White text */
+            font-size: 1.1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #495057;
+            color: #ffc107; /* Highlight color */
+        }
+
+        .logo-img {
+            max-width: 150px; /* Increased logo size */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .store-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem; /* Increased title font size */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Sidebar Styling */
         .sidebar {
-            background-color: #343a40;
+            background-color: #007b00;
+            color: white;
             height: 100vh;
+            padding-top: 30px;
         }
 
         .sidebar .nav-link {
@@ -22,6 +67,7 @@
             background-color: #495057;
         }
 
+        /* Card Styling */
         .custom-card {
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -29,16 +75,6 @@
 
         .custom-card .card-body {
             padding: 2rem;
-        }
-
-        .welcome-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        .welcome-text {
-            font-size: 1.25rem;
-            color: #6c757d;
         }
 
         .card-title {
@@ -51,37 +87,85 @@
             color: #007bff;
         }
 
-        .logo-img {
-            max-width: 100px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .store-title {
-            text-align: center;
-            color: white;
-            font-size: 1.75rem;
+        /* Welcome Section */
+        .welcome-title {
+            font-size: 2.5rem;
             font-weight: bold;
         }
 
-        .sidebar a:hover {
-            text-decoration: none;
+        .welcome-text {
+            font-size: 1.25rem;
+            color: #6c757d;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .store-title {
+                font-size: 2rem;
+            }
+
+            .logo-img {
+                max-width: 120px; /* Adjust logo size on smaller screens */
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Liben Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ProductListServlet">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.jsp">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
+            <!-- Sidebar Section -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
-                <!-- Logo and Store Name with Redirection -->
                 <a href="ProductListServlet" class="text-decoration-none">
                     <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
                     <h1 class="store-title">Liben Store</h1>
                 </a>
-                
                 <hr class="text-white">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -96,7 +180,7 @@
                 </ul>
             </nav>
 
-            <!-- Main Content -->
+            <!-- Main Content Section -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
                 <div class="container mt-4">
                     <h1 class="welcome-title">Welcome, Admin!</h1>
@@ -136,6 +220,11 @@
             </main>
         </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Liben Store. All rights reserved.</p>
+    </footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

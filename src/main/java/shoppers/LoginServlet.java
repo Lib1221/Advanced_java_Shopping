@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // SQL query to validate the user and check admin status
-        String sql = "SELECT isAdmin FROM users WHERE username = ? AND password = ?";
+        String sql = "SELECT id, isAdmin FROM users WHERE username = ? AND password = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -24,8 +24,13 @@ public class LoginServlet extends HttpServlet {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    // Retrieve isAdmin from the result set
+                    // Retrieve user ID and admin status
+                    int userId = rs.getInt("id");
                     boolean isAdmin = rs.getBoolean("isAdmin");
+
+                    // Start a session and set the user ID
+                    HttpSession session = request.getSession();
+                    session.setAttribute("userId", userId);
 
                     if (isAdmin) {
                         // Redirect to admin dashboard
@@ -36,14 +41,17 @@ public class LoginServlet extends HttpServlet {
                     }
                 } else {
                     // Invalid login credentials
-                    response.getWriter().println("Invalid username or password!");
+                    request.setAttribute("errorMessage", "Invalid username or password!");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                    dispatcher.forward(request, response);
                 }
             } catch (SQLException e) {
                 System.out.println("Error processing result set: " + e.getMessage());
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred during login processing.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.getWriter().println("Database error: " + e.getMessage());
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database error: " + e.getMessage());
         }
     }
 }

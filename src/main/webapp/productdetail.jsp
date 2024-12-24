@@ -7,12 +7,24 @@
     <title>Product Details</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
     <style>
         /* Header styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
         .header {
             background-color: #f8f9fa;
             padding: 20px 0;
-            text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -146,15 +158,44 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo-section">
-            <a href="ProductListServlet" class="text-decoration-none">
-                <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
-                <h1 class="store-title">Liben Store</h1>
-            </a>
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="ProductListServlet">Liben Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CartServlet">Cart</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Liben Store</h1>
+        <p>Your Favorite Place to Shop Online</p>
+        <div class="search-bar">
+              
+            <form action="SearchProductServlet" method="GET" class="d-flex">
+    <input type="text" name="query" class="form-control me-2" placeholder="Search for products...">
+    <button type="submit" class="btn btn-outline-success">Search</button>
+</form>
+        </div>
+    </header>
 
     <!-- Product Detail -->
     <div class="container my-5 product-detail">
@@ -178,15 +219,13 @@
             <p class="product-description"><%= description %></p>
             <p class="product-price">$<%= price %></p>
             
-            <!-- Quantity Selector -->
-            <div class="quantity-selector">
-                <label for="quantity" class="form-label">Quantity:</label>
-                <input type="number" id="quantity" class="form-control" value="1" min="1">
-            </div>
-
             <!-- Add to Cart Button -->
-            <button class="btn btn-success">Add to Cart</button>
-            
+            <form action="AddToCartServlet" method="POST" class="d-inline">
+                <input type="hidden" name="productId" value="<%= product.get("id") %>">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
+
             <!-- Back to Products Button -->
             <a href="ProductListServlet" class="btn btn-secondary">Back to Products</a>
         </div>

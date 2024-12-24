@@ -12,11 +12,14 @@
         body {
             font-family: Arial, sans-serif;
         }
-        
+
         .header {
-            background-color: #343a40;
+            background-color: #007b00;
             color: white;
             padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header .logo-section {
@@ -65,11 +68,17 @@
             width: 100%;
             padding: 0.75rem;
             font-size: 1.1rem;
+            border-radius: 0.375rem;
         }
 
         .container {
             max-width: 600px;
             margin-top: 3rem;
+        }
+
+        .back-btn {
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -93,7 +102,7 @@
         </div>
         <div class="actions">
             <a href="ViewUsersServlet">
-                <button class="btn btn-secondary">View Users</button>
+                <button class="btn btn-light">View Users</button>
             </a>
         </div>
     </header>
@@ -133,6 +142,9 @@
             <!-- Submit Button -->
             <button type="submit" class="btn btn-primary">Add User</button>
         </form>
+
+        <!-- Back to Dashboard Button -->
+        <a href="AdminDashboardServlet" class="btn btn-secondary back-btn">Back to Dashboard</a>
     </div>
 
     <!-- Bootstrap JS Bundle -->

@@ -176,5 +176,32 @@
     <servlet-name>SearchProductServlet</servlet-name>
     <url-pattern>/SearchProductServlet</url-pattern>
 </servlet-mapping>
+
+
+
+
+
+
+      <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>shoppers.CartServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/CartServlet</url-pattern>
+</servlet-mapping>
+
+
+
+      <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>shoppers.AddToCartServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/AddToCartServlet</url-pattern>
+</servlet-mapping>
     
 </web-app>
