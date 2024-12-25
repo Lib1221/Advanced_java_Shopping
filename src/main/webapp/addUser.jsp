@@ -80,6 +80,71 @@
             margin-top: 1.5rem;
             width: 100%;
         }
+        
+                .logo-img {
+            max-width: 50px;
+            height: auto;
+        }
+
+        .navbar {
+            background-color: #007b00;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .sidebar {
+            background-color: #000000;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+        }
+
+        .sidebar .nav-link {
+            color: white;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #495057;
+        }
+
+        .store-title {
+            text-align: center;
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+
+        .custom-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .form-control {
+            border-radius: 10px;
+        }
+
+        .btn {
+            border-radius: 10px;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+        }
 
         @media (max-width: 768px) {
             .container {
@@ -94,57 +159,74 @@
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header class="header">
-        <div class="logo-section">
-            <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
-            <h1 class="store-title">Liben Store</h1>
+  
+    
+    
+    
+     <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
+                <a href="AdminDashboardServlet" class="text-decoration-none height 400px">
+                    <h1 class="store-title">Liben Store</h1>
+                </a>
+                <hr class="text-white">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="ViewProductsServlet">View & Edit Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ViewUsersServlet">View & Edit Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="LogoutServlet">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+                <div class="container mt-5">
+                    <h2 class="text-center">Add New User</h2>
+                    <form action="AddUserServlet" method="POST">
+					            <!-- Username -->
+					            <div class="form-group">
+					                <label for="username">Username:</label>
+					                <input type="text" id="username" name="username" required class="form-control">
+					            </div>
+					
+					            <!-- Email -->
+					            <div class="form-group">
+					                <label for="email">Email:</label>
+					                <input type="email" id="email" name="email" required class="form-control">
+					            </div>
+					
+					            <!-- Password -->
+					            <div class="form-group">
+					                <label for="password">Password:</label>
+					                <input type="password" id="password" name="password" required class="form-control">
+					            </div>
+					
+					            <!-- Admin Selection -->
+					            <div class="form-group">
+					                <label for="isAdmin">Admin:</label>
+					                <select id="isAdmin" name="isAdmin" class="form-control">
+					                    <option value="true">Yes</option>
+					                    <option value="false">No</option>
+					                </select>
+					            </div>
+					
+					            <!-- Submit Button -->
+					            <button type="submit" class="btn btn-primary">Add User</button>
+					        </form>
+                    
+                    
+                    
+                    <!-- Back to Dashboard Button -->
+                    <a href="AdminDashboardServlet" class="btn btn-secondary mt-3 back-btn">Back to Dashboard</a>
+                </div>
+            </main>
         </div>
-        <div class="actions">
-            <a href="ViewUsersServlet">
-                <button class="btn btn-light">View Users</button>
-            </a>
-        </div>
-    </header>
-
-    <!-- Add User Form Section -->
-    <h1 class="section-heading">Add New User</h1>
-
-    <div class="container">
-        <form action="AddUserServlet" method="POST">
-            <!-- Username -->
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required class="form-control">
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required class="form-control">
-            </div>
-
-            <!-- Password -->
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required class="form-control">
-            </div>
-
-            <!-- Admin Selection -->
-            <div class="form-group">
-                <label for="isAdmin">Admin:</label>
-                <select id="isAdmin" name="isAdmin" class="form-control">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Add User</button>
-        </form>
-
-        <!-- Back to Dashboard Button -->
-        <a href="AdminDashboardServlet" class="btn btn-secondary back-btn">Back to Dashboard</a>
     </div>
 
     <!-- Bootstrap JS Bundle -->

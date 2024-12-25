@@ -214,7 +214,7 @@
         </div>
 
         <!-- Product Info -->
-        <div class="product-info">
+        <div class="product-info mb-5">
             <h1 class="product-title"><%= name %></h1>
             <p class="product-description"><%= description %></p>
             <p class="product-price">$<%= price %></p>

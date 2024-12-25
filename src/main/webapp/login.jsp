@@ -100,7 +100,7 @@
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="home.jsp">
                 <img src="images/log.png" alt="Liben Store Logo" style="width: 50px; height: auto;">
                 Liben Store
             </a>

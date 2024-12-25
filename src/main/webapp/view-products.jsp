@@ -24,7 +24,7 @@
         }
 
         .sidebar {
-            background-color: #007b00;
+            background-color: #000000;
             color: white;
             height: 100vh;
             padding-top: 20px;
@@ -79,26 +79,12 @@
 </head>
 <body>
 
-    <!-- Header Section (Navbar) -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid align-center">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-            <div class="action-icons">
-                <img src="images/carts.png" alt="Cart Icon">
-                <img src="images/orders.png" alt="Order Icon">
-            </div>
-        </div>
-    </nav>
 
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
                 <a href="AdminDashboardServlet" class="text-decoration-none">
-                    <img src="images/log.png" alt="Liben Store Logo" class="logo-img">
                     <h1 class="store-title">Liben Store</h1>
                 </a>
                 <hr class="text-white">
@@ -119,6 +105,16 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
                 <div class="container mt-4">
                     <h1 class="text-center mb-4">View Items</h1>
+                    <header>
+       
+        <div class="search-bar mb-5">
+              
+            <form action="SearchProductServlet" method="GET" class="d-flex">
+    <input type="text" name="query" class="form-control me-2" placeholder="Search for products...">
+    <button type="submit" class="btn btn-outline-success">Search</button>
+</form>
+        </div>
+    </header>
 
                     <!-- Add Product Button Section -->
                     <div class="container mb-3">

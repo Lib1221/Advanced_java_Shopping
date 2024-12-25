@@ -10,6 +10,11 @@ public class AdminDashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	HttpSession session = request.getSession(false); // Get the session without creating a new one
+        if (session == null || session.getAttribute("userId") == null) {
+            response.sendRedirect("login.jsp"); // Redirect to login page if the user is not logged in
+            return;
+        }
         int totalUsers = 0;
         int totalProducts = 0;
         int adminsOnline = 1; // Placeholder: Adjust logic to calculate actual admins online

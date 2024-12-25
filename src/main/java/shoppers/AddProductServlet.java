@@ -10,6 +10,11 @@ public class AddProductServlet extends HttpServlet {
     // Handles GET requests (such as when the user directly accesses the URL)
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	HttpSession session = request.getSession(false); // Get the session without creating a new one
+        if (session == null || session.getAttribute("userId") == null) {
+            response.sendRedirect("login.jsp"); // Redirect to login page if the user is not logged in
+            return;
+        }
         // Redirect to the JSP page for adding a product (addProduct.jsp)
         // Assuming you have this JSP page to display the form
         request.getRequestDispatcher("/addProduct.jsp").forward(request, response);

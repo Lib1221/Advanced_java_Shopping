@@ -53,7 +53,7 @@
 
         /* Sidebar Styling */
         .sidebar {
-            background-color: #007b00;
+            background-color: #000000;
             color: white;
             height: 100vh;
             padding-top: 30px;
@@ -138,25 +138,7 @@
 </head>
 <body>
 
-    <!-- Header Section -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Liben Store</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="ProductListServlet">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.jsp">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  
 
     <div class="container-fluid">
         <div class="row">
@@ -182,10 +164,20 @@
 
             <!-- Main Content Section -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+            
                 <div class="container mt-4">
                     <h1 class="welcome-title">Welcome, Admin!</h1>
                     <p class="welcome-text">Use the navigation menu to manage users and products.</p>
-
+				<header>
+       
+        <div class="search-bar">
+              
+            <form action="SearchProductServlet" method="GET" class="d-flex">
+    <input type="text" name="query" class="form-control me-2" placeholder="Search for products...">
+    <button type="submit" class="btn btn-outline-success">Search</button>
+</form>
+        </div>
+    </header>
                     <!-- Dashboard Cards -->
                     <div class="row mt-4">
                         <!-- Total Users Card -->

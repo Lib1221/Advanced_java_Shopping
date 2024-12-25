@@ -75,6 +75,7 @@
 
         /* Product Card Styling */
         .product-card {
+        justify-content: center;
             border-radius: 15px;
             background-color: white;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -140,7 +141,7 @@
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: auto; /* Ensures footer sticks to the bottom */
+            margin-top: 100px; /* Ensures footer sticks to the bottom */
         }
 
         /* Search Bar Styling */
@@ -307,11 +308,8 @@
                 List<Map<String, String>> prod = (List<Map<String, String>>) request.getAttribute("productList");
                 if (prod == null || prod.isEmpty()) {
                     prod = Arrays.asList(
-                        Map.of("id", "1", "name", "Product 1", "description", "Description 1", "price", "10.99", "image_url", "images/product1.jpg"),
-                        Map.of("id", "2", "name", "Product 2", "description", "Description 2", "price", "20.99", "image_url", "images/product2.jpg"),
-                        Map.of("id", "3", "name", "Product 3", "description", "Description 3", "price", "30.99", "image_url", "images/product3.jpg"),
-                        Map.of("id", "4", "name", "Product 4", "description", "Description 4", "price", "40.99", "image_url", "images/product4.jpg"),
-                        Map.of("id", "5", "name", "Product 5", "description", "Description 5", "price", "50.99", "image_url", "images/product5.jpg")
+                        Map.of("id", "1", "name", "Null", "description", "No product is Found", "price", "..", "image_url", "Null")
+                       
                     );
                 }
 
